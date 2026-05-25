@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ПРАВОТРОН 3000 — Абсолютний Детектор Істини</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Шапка -->
+        <header class="header">
+            <h1 class="logo">ПРАВОТРОН <span class="trademark">™</span> 3000</h1>
+            <p class="tagline">Об'єктивність там, де її ніколи не було</p>
+        </header>
+
+        <!-- Основний контент -->
+        <main class="main">
+            <!-- Форма введення -->
+            <section id="form-section" class="form-section active">
+                <form id="verdict-form" class="verdict-form">
+                    <!-- Вибір статі користувача -->
+                    <div class="form-group">
+                        <label class="form-label">Ви хто?</label>
+                        <div class="gender-options">
+                            <label class="gender-option">
+                                <input type="radio" name="user-gender" value="female" required>
+                                <span class="gender-icon">👩</span>
+                                <span class="gender-text">Я дівчина</span>
+                            </label>
+                            <label class="gender-option">
+                                <input type="radio" name="user-gender" value="male" required>
+                                <span class="gender-icon">👨</span>
+                                <span class="gender-text">Я хлопець</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Вибір статі опонента -->
+                    <div class="form-group">
+                        <label class="form-label">Ваш опонент?</label>
+                        <div class="gender-options">
+                            <label class="gender-option">
+                                <input type="radio" name="opponent-gender" value="female" required>
+                                <span class="gender-icon">👩</span>
+                                <span class="gender-text">Опонент — дівчина</span>
+                            </label>
+                            <label class="gender-option">
+                                <input type="radio" name="opponent-gender" value="male" required>
+                                <span class="gender-icon">👨</span>
+                                <span class="gender-text">Опонент — хлопець</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Завантаження скріншоту -->
+                    <div class="form-group">
+                        <label class="form-label">Завантажте скріншот переписки 📸</label>
+                        <div class="file-upload" id="file-upload">
+                            <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            <p class="upload-text">Перетягніть скріншот сюди або клікніть</p>
+                            <input type="file" id="screenshot" accept="image/jpeg,image/png,image/webp" required>
+                        </div>
+                        <p class="file-info" id="file-info"></p>
+                    </div>
+
+                    <!-- Гумористичне попередження -->
+                    <div class="disclaimer-small">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                        <span>Ваші скріншоти залишаються на вашому пристрої</span>
+                    </div>
+
+                    <!-- Кнопка відправлення -->
+                    <button type="submit" class="btn btn-submit" id="submit-btn" disabled>
+                        Хто правий? ⚖️
+                    </button>
+                </form>
+            </section>
+
+            <!-- Фальшивий аналіз (приховано) -->
+            <section id="loading-section" class="loading-section">
+                <div class="loading-container">
+                    <h2>Аналізуємо...</h2>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <p class="progress-text" id="progress-text">Аналізуємо метадані...</p>
+                </div>
+            </section>
+
+            <!-- Результати -->
+            <section id="result-section" class="result-section">
+                <div class="result-card">
+                    <div class="result-verdict" id="result-verdict">
+                        <h2 id="verdict-text">ВИ ПРАВІ</h2>
+                        <p class="confidence" id="confidence">Рівень впевненості: <span>99.9%</span></p>
+                    </div>
+
+                    <div class="result-reason">
+                        <h3>Обґрунтування:</h3>
+                        <p id="reason-text"></p>
+                    </div>
+
+                    <!-- Псевдонаукові метрики -->
+                    <div class="fake-analysis">
+                        <h3>Глибокий аналіз переписки:</h3>
+                        <div class="metrics">
+                            <div class="metric">
+                                <span class="metric-label">Коефіцієнт пасивної агресії:</span>
+                                <span class="metric-value" id="metric-1">87%</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Токсичність опонента:</span>
+                                <span class="metric-value" id="metric-2">102%</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Рівень маніпуляцій:</span>
+                                <span class="metric-value" id="metric-3">64%</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Логічність аргументів:</span>
+                                <span class="metric-value" id="metric-4">8%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Дії -->
+                    <div class="result-actions">
+                        <button class="btn btn-secondary" id="retry-btn">Спробувати ще раз</button>
+                        <button class="btn btn-share" id="share-btn">Поділитися вердиктом 📤</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Футер -->
+        <footer class="footer">
+            <p class="disclaimer">
+                ⚖️ <strong>ДИСКЛЕЙМЕР:</strong> Це жартівливий проект. Усі вердикти вигадані й не мають жодного відношення до реальної логіки.
+                Правотрон 3000 не несе відповідальності за зруйновані стосунки та втрачені суперечки. Усі збіги з реальністю випадкові.
+            </p>
+            <p class="footer-credit">
+                Made with 💕 для всіх, хто коли-небудь доводив свою правоту без аргументів
+            </p>
+        </footer>
+    </div>
+
+    <!-- Конфеті (опціонально) -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <script src="verdictEngine.js"></script>
+    <script src="fakeAnalysis.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
